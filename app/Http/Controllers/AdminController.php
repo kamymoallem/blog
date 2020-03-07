@@ -59,12 +59,18 @@ class AdminController extends Controller
 //        $content->cat_id = $request->input('sub_category');
         $content->save();
 
-        print_r($content->toArray()['id']);
+//        print_r($content->toArray()['id']);
 
-        $conSubCat = new ConSubCat;
-        $conSubCat->con_id = $content->toArray()['id'];
-        $conSubCat->sub_cat_id = $request->input('sub_category');
-        $conSubCat->save();
+        for ($i = 1; $i <= 4; $i++)
+        {
+            if (!empty($request->input('sub_category' . $i)))
+            {
+                $conSubCat = new ConSubCat;
+                $conSubCat->con_id = $content->toArray()['id'];
+                $conSubCat->sub_cat_id = $request->input('sub_category' . $i);
+                $conSubCat->save();
+            }
+        }
 
         $subCategories = SubCategory::with('category')->get()->toArray();
         return view('admin.insert_content_form')->with(compact('subCategories'));

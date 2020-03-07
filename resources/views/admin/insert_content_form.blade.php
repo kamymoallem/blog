@@ -16,8 +16,30 @@
     <label for="text">text:</label><br>
     <textarea id="text" name="text">text</textarea><br>
 
-    <label for="sub_category">Choose a cat:</label><br>
-    <select id="sub_category" name="sub_category">
+    <label for="sub_category1">Choose a cat:</label><br>
+    <select id="sub_category1" name="sub_category1">
+        <option value="">انتخاب کنید</option>
+        @foreach($subCategories as $subCategory)
+            <option value="{{ $subCategory['id'] }}">{{ $subCategory['title'] }} from {{ $subCategory['category']['title'] }} </option>
+        @endforeach
+
+    </select><br>
+    <select id="sub_category2" name="sub_category2">
+        <option value="">انتخاب کنید</option>
+        @foreach($subCategories as $subCategory)
+            <option value="{{ $subCategory['id'] }}">{{ $subCategory['title'] }} from {{ $subCategory['category']['title'] }} </option>
+        @endforeach
+
+    </select><br>
+    <select id="sub_category3" name="sub_category3">
+        <option value="">انتخاب کنید</option>
+        @foreach($subCategories as $subCategory)
+            <option value="{{ $subCategory['id'] }}">{{ $subCategory['title'] }} from {{ $subCategory['category']['title'] }} </option>
+        @endforeach
+
+    </select><br>
+    <select id="sub_category4" name="sub_category4">
+        <option value="">انتخاب کنید</option>
         @foreach($subCategories as $subCategory)
             <option value="{{ $subCategory['id'] }}">{{ $subCategory['title'] }} from {{ $subCategory['category']['title'] }} </option>
         @endforeach

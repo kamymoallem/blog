@@ -12,5 +12,8 @@ class Contents extends Model
     protected $primaryKey = 'id';
     protected $softDelete = true;
 
-    
+    public function subcategory()
+    {
+        return $this->belongsToMany(SubCategory::class, 'con_subcat', 'con_id', 'sub_cat_id');//->withPivot('id', 'donate_name', 'amount_total');
+    }
 }

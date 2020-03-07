@@ -15,9 +15,9 @@ class CreateConSubcatTable extends Migration
     {
         Schema::create('con_subcat', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->unsignedInteger('con_id');
+            $table->unsignedInteger('con_id')->index();
             $table->foreign('con_id')->references('id')->on('contents')->onDelete('cascade');
-            $table->unsignedInteger('sub_cat_id');
+            $table->unsignedInteger('sub_cat_id')->index();
             $table->foreign('sub_cat_id')->references('id')->on('sub_categories')->onDelete('cascade');
             $table->timestamps();
         });
